@@ -1,17 +1,20 @@
+/* navigation bar styling */
 nav {
   height: 120px;
   width: 100%;
   background-color: #4056a1;
-  color: #FFFFFF;
+  color: #ffffff;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: space-between;
+  position: fixed;
+  margin: 0;
 
 }
 
 nav span {
   font-family: "Bungee";
-  margin: 1.5em;
+  margin-left: 1.5em;
 }
 
 nav div {
@@ -22,10 +25,9 @@ nav div {
 
 nav div p {
   margin-bottom: 0;
- 
 }
 
 nav div i {
   color: red;
-  align-self:center;
+  align-self: center;
 }

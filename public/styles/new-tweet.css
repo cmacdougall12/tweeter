@@ -1,0 +1,33 @@
+form {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bungee';
+  font-weight: bold;
+}
+form label {
+  font-family: 'Source Sans Pro';
+  font-size: large;
+}
+
+form textarea{
+  outline: none;
+  border-style: none;
+  background-color: #f4f1ec;
+  font-family: 'Source Sans Pro';
+  font-size: medium;
+  font-weight: bolder;
+  resize: none; 
+}
+form button {
+  font-family: 'Bungee';
+  background-color: #4056a1;
+  color: white;
+}
+
+form div {
+  display: flex;
+  justify-content: space-between;
+  border-top: black solid;
+  border-width:medium;
+  padding-top: 10px;
+}
