@@ -14,9 +14,10 @@
   border-style: none;
   background-color: #f4f1ec;
   font-family: "Source Sans Pro";
-  font-size: medium;
-  font-weight: bolder;
+  font-size: large;
+  font-weight:600;
   resize: none;
+  margin-top: 0.5em;
 }
 .new-tweet-form button {
   font-family: "Bungee";

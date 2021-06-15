@@ -5,6 +5,7 @@
   flex-direction: column;
   border: black solid;
   flex-wrap: nowrap;
+  margin: 0
 }
 
 .tweet-container:hover {
@@ -14,19 +15,20 @@
 .tweet-container header {
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
+  justify-content:flex-start;
   flex-wrap: nowrap;
+  margin: 0.5em;
 }
 
 .tweet-container header h3 {
-  margin: .5em 1em;
+  margin: 0.5em;
 }
 
-.tweet-container header h3 img {
-  width: 50px;
+.tweet-container .handle {
+  margin-left: auto;
 }
 
-.tweet-container div {
+.tweet-container .content {
   width: 95%;
   border-bottom: black solid;
   align-self: center;
@@ -48,9 +50,6 @@
   margin:0;
 }
 
-.tweet-container footer i {
-  color: #4056a1;
-}
 
 .tweet-container footer i:hover {
   color: darkgoldenrod;

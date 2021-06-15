@@ -7,5 +7,8 @@ $(document).ready(function () {
     if (count < 0) {
       $(".counter").addClass("negative-counter");
     }
+    if(count>=0){
+      $(".counter").removeClass("negative-counter");
+    }
   });
 });
