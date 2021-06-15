@@ -31,3 +31,7 @@ form div {
   border-width:medium;
   padding-top: 10px;
 }
+
+.negative-counter {
+  color: red;
+}
