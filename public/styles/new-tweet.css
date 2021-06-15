@@ -1,33 +1,38 @@
 .new-tweet-form {
   display: flex;
   flex-direction: column;
-  font-family: 'Bungee';
+  font-family: "Bungee";
   font-weight: bold;
 }
 .new-tweet-form label {
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   font-size: large;
 }
 
-.new-tweet-form textarea{
+.new-tweet-form textarea {
   outline: none;
   border-style: none;
   background-color: #f4f1ec;
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   font-size: medium;
   font-weight: bolder;
-  resize: none; 
+  resize: none;
 }
 .new-tweet-form button {
-  font-family: 'Bungee';
+  font-family: "Bungee";
   background-color: #4056a1;
   color: white;
 }
+
+.new-tweet-form button:hover {
+  background-color: darkgoldenrod;
+}
+
 .new-tweet-form div {
   display: flex;
   justify-content: space-between;
   border-top: black solid;
-  border-width:medium;
+  border-width: medium;
   padding-top: 10px;
 }
 
