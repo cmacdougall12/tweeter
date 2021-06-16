@@ -4,11 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const renderTweets = function (tweets) {
-  let tweetContainer = "";
+  let tweetContainer = $("#tweet-container").empty();
   for (const tweet of tweets) {
-    tweetContainer = createTweetElement(tweet) + tweetContainer;
+    tweetContainer.prepend(createTweetElement(tweet));
+    // tweetContainer = createTweetElement(tweet) + tweetContainer;
   }
-  return tweetContainer;
+  // return tweetContainer;
 };
 
 const createTweetElement = function (obj) {
@@ -40,7 +41,7 @@ const createTweetElement = function (obj) {
 $(document).ready(function () {
   const loadTweets = function () {
     $.ajax({ method: "GET", url: "/tweets" }).then((data) => {
-      $("#tweet-container").prepend(renderTweets(data));
+     renderTweets(data);
     });
   };
 
@@ -51,18 +52,16 @@ $(document).ready(function () {
     const data = $(this).serialize();
     //edge case: ensure tweet field isn't blank
     if (data.length < 6) {
-      return alert(
-        "Lost for words? Your tweet is blank!"
-      );
+      return alert("Lost for words? Your tweet is blank!");
     }
     //edge case: alert user if tweet max exceeded
     if (data.length > 145) {
       return alert("Your tweet exceeds the maximum character count of 140");
     }
-    //ajax post 
-    $.ajax({ method: "POST", url: "/tweets", data }).then((data) => {
+    //ajax post
+    $.ajax({ method: "POST", url: "/tweets", data}).then((data) => {
       $("#tweet-text").val("");
-      $(".new-tweet-form output").val("140")
+      $(".new-tweet-form output").val("140");
       loadTweets();
     });
   });
