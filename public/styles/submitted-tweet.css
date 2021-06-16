@@ -5,7 +5,7 @@
   flex-direction: column;
   border: black solid;
   flex-wrap: nowrap;
-  margin: 0
+  margin: 0;
 }
 
 .tweet-container:hover {

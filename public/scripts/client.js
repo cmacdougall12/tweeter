@@ -3,37 +3,10 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-
-
-const data = [
-  {
-    user: {
-      name: "Newton",
-      avatars: "https://i.imgur.com/73hZDYK.png",
-      handle: "@SirIsaac",
-    },
-    content: {
-      text: "If I have seen further it is by standing on the shoulders of giants",
-    },
-    created_at: 1461116232227,
-  },
-  {
-    user: {
-      name: "Descartes",
-      avatars: "https://i.imgur.com/nlhLi3I.png",
-      handle: "@rd",
-    },
-    content: {
-      text: "Je pense , donc je suis",
-    },
-    created_at: 1461113959088,
-  },
-];
-
 const renderTweets = function (tweets) {
   let tweetContainer = "";
   for (const tweet of tweets) {
-    tweetContainer += createTweetElement(tweet);
+    tweetContainer = createTweetElement(tweet) + tweetContainer;
   }
   return tweetContainer;
 };
@@ -64,11 +37,33 @@ const createTweetElement = function (obj) {
   return $tweet;
 };
 
-
-
 $(document).ready(function () {
-  $('main').append(renderTweets(data));
+  const loadTweets = function () {
+    $.ajax({ method: "GET", url: "/tweets" }).then((data) => {
+      $("#tweet-container").prepend(renderTweets(data));
+    });
+  };
+
+  loadTweets();
+
+  $(".new-tweet-form").on("submit", function (event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    //edge case: ensure tweet field isn't blank
+    if (data.length < 6) {
+      return alert(
+        "Lost for words? Your tweet is blank!"
+      );
+    }
+    //edge case: alert user if tweet max exceeded
+    if (data.length > 145) {
+      return alert("Your tweet exceeds the maximum character count of 140");
+    }
+    //ajax post 
+    $.ajax({ method: "POST", url: "/tweets", data }).then((data) => {
+      $("#tweet-text").val("");
+      $(".new-tweet-form output").val("140")
+      loadTweets();
+    });
+  });
 });
-
-
-

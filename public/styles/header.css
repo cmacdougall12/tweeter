@@ -8,6 +8,9 @@
   margin: 0;
   background-color: #000000;
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+  position: fixed;
+  margin: 0;
+  top: 0;
 }
 
 .main-header div img {
