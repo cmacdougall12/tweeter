@@ -4,12 +4,10 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 const renderTweets = function (tweets) {
-  let tweetContainer = $("#tweet-container").empty();
+  let tweetContainer = $("#tweets-container").empty();
   for (const tweet of tweets) {
     tweetContainer.prepend(createTweetElement(tweet));
-    // tweetContainer = createTweetElement(tweet) + tweetContainer;
   }
-  // return tweetContainer;
 };
 
 const createTweetElement = function (obj) {
@@ -47,16 +45,20 @@ $(document).ready(function () {
 
   loadTweets();
 
+  $(".new-tweet-form").on("click", function (event) {
+    $(".new-tweet-form .error-message").text("");
+  })
+
   $(".new-tweet-form").on("submit", function (event) {
     event.preventDefault();
     const data = $(this).serialize();
     //edge case: ensure tweet field isn't blank
     if (data.length < 6) {
-      return alert("Lost for words? Your tweet is blank!");
+      return $(".error-message").text("Lost for words? Your tweet is blank!")
     }
     //edge case: alert user if tweet max exceeded
     if (data.length > 145) {
-      return alert("Your tweet exceeds the maximum character count of 140");
+      return $(".error-message").text("Too chatty! Tweet must be 140 words or less")
     }
     //ajax post
     $.ajax({ method: "POST", url: "/tweets", data}).then((data) => {

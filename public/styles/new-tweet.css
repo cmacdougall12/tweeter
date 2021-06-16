@@ -30,6 +30,12 @@
   background-color: darkgoldenrod;
 }
 
+.new-tweet-form .error-message {
+  color: darkred;
+  text-decoration: underline;
+  font-size: 15px;
+}
+
 .new-tweet-form div {
   display: flex;
   justify-content: space-between;

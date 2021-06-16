@@ -1,3 +1,7 @@
+
+#tweets-container {
+  width: 100%
+}
 .tweet-container {
   display: flex;
   align-items: stretch;
@@ -7,6 +11,7 @@
   flex-wrap: nowrap;
   margin: 0;
 }
+
 
 .tweet-container:hover {
   box-shadow: 10px 5px 5px gray;
@@ -19,6 +24,8 @@
   flex-wrap: nowrap;
   margin: 0.5em;
 }
+
+
 
 .tweet-container header h3 {
   margin: 0.5em;
