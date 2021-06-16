@@ -1,6 +1,9 @@
-
+/* .toggle div was added to incorporate the toggle button*/
+.toggle {
+  height: 400px;
+}
 #tweets-container {
-  width: 100%
+  width: 100%;
 }
 .tweet-container {
   display: flex;

@@ -37,9 +37,10 @@ const createTweetElement = function (obj) {
 };
 
 $(document).ready(function () {
+  $(".new-tweet").hide();
   const loadTweets = function () {
     $.ajax({ method: "GET", url: "/tweets" }).then((data) => {
-     renderTweets(data);
+      renderTweets(data);
     });
   };
 
@@ -47,24 +48,36 @@ $(document).ready(function () {
 
   $(".new-tweet-form").on("click", function (event) {
     $(".new-tweet-form .error-message").text("");
-  })
+  });
 
   $(".new-tweet-form").on("submit", function (event) {
     event.preventDefault();
     const data = $(this).serialize();
     //edge case: ensure tweet field isn't blank
     if (data.length < 6) {
-      return $(".error-message").text("Lost for words? Your tweet is blank!")
+      return $(".error-message").text("Lost for words? Your tweet is blank!");
     }
     //edge case: alert user if tweet max exceeded
     if (data.length > 145) {
-      return $(".error-message").text("Too chatty! Tweet must be 140 words or less")
+      return $(".error-message").text(
+        "Too chatty! Tweet must be 140 words or less"
+      );
     }
     //ajax post
-    $.ajax({ method: "POST", url: "/tweets", data}).then((data) => {
+    $.ajax({ method: "POST", url: "/tweets", data }).then((data) => {
       $("#tweet-text").val("");
       $(".new-tweet-form output").val("140");
       loadTweets();
     });
   });
+
+  //implement toggle button
+  $(".fas.fa-angle-double-down").click(function () {
+    $(".new-tweet").slideToggle(1000, function(){
+      $('textarea').focus()
+    })
+  });
 });
+
+
+

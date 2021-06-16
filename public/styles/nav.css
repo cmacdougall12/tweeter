@@ -32,4 +32,15 @@
 nav div i {
   color: red;
   align-self: center;
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+
+@keyframes mover {
+  0% { transform: translateY(-2px); }
+  100% { transform: translateY(7px); }
+}
+
+nav div i:hover {
+  color: yellow;
 }
