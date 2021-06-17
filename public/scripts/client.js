@@ -37,15 +37,18 @@ const createTweetElement = function (obj) {
 };
 
 $(document).ready(function () {
+  //hide elements that should not be visible on load************
   $(".new-tweet").hide();
+
+  //get current tweets in database upon load / reload of page************
   const loadTweets = function () {
     $.ajax({ method: "GET", url: "/tweets" }).then((data) => {
       renderTweets(data);
     });
   };
-
   loadTweets();
 
+  //user creates new tweet. Use ajax POST request to add without reloading the page************
   $(".new-tweet-form").on("click", function (event) {
     $(".new-tweet-form .error-message").text("");
   });
@@ -71,13 +74,36 @@ $(document).ready(function () {
     });
   });
 
+  //STRETCH Features************
   //implement toggle button
-  $(".fas.fa-angle-double-down").click(function () {
-    $(".new-tweet").slideToggle(1000, function(){
-      $('textarea').focus()
-    })
+  const toggleButton = $(".fas.fa-angle-double-down");
+  function toggleNewTweet() {
+    $(".new-tweet").slideToggle(1000, function () {
+      $("textarea").focus();
+    });
+  }
+
+  //implement back to top button
+  let rootElement = document.documentElement;
+  const scrollToTopButton = $(".fa-arrow-alt-circle-up");
+
+  //make button visible once user scrolls down
+  function scrollTop() {
+    let scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+    if (rootElement.scrollTop / scrollTotal > 0.3) {
+      scrollToTopButton.css("opacity", "100");
+    } else {
+      scrollToTopButton.css("opacity", "0");
+    }
+  }
+
+  //event listeners for stretch features
+  toggleButton.click(toggleNewTweet);
+  document.addEventListener("scroll", scrollTop);
+  scrollToTopButton.click(function(event){
+    event.preventDefault()
+    $(".new-tweet").show();
+    $("textarea").focus();
   });
+  
 });
-
-
-
