@@ -28,8 +28,6 @@
   margin: 0.5em;
 }
 
-
-
 .tweet-container header h3 {
   margin: 0.5em;
 }
@@ -59,7 +57,6 @@
 .tweet-container footer h6 {
   margin:0;
 }
-
 
 .tweet-container footer i:hover {
   color: darkgoldenrod;

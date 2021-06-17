@@ -6,8 +6,8 @@
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: #000000;
-  background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+  background-color: rgb(53, 53, 53);
+  background-image: url("https://www.transparenttextures.com/patterns/3px-tile.png");
   position: fixed;
   margin: 0;
   top: 0;

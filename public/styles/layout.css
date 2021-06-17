@@ -33,10 +33,6 @@ body {
   align-self: center;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
  /* Desktop styles */
 @media only screen and (min-width: 1024px) {
   .container {

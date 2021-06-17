@@ -1,15 +1,11 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+// Render tweets upon page load function****************************************************
 const renderTweets = function (tweets) {
   let tweetContainer = $("#tweets-container").empty();
   for (const tweet of tweets) {
     tweetContainer.prepend(createTweetElement(tweet));
   }
 };
-
+//Create tweet element based on database information ***************************************
 const createTweetElement = function (obj) {
   const $tweet = `<article class="tweet-container">
   <header>
@@ -37,10 +33,11 @@ const createTweetElement = function (obj) {
 };
 
 $(document).ready(function () {
-  //hide elements that should not be visible on load************
+  //hide new tweet form. This should not be visible on load.********************************
+  //Use toggle buttonin upper left corner to unhide
   $(".new-tweet").hide();
 
-  //get current tweets in database upon load / reload of page************
+  //get current tweets in database upon load / reload of page*******************************
   const loadTweets = function () {
     $.ajax({ method: "GET", url: "/tweets" }).then((data) => {
       renderTweets(data);
@@ -48,7 +45,7 @@ $(document).ready(function () {
   };
   loadTweets();
 
-  //user creates new tweet. Use ajax POST request to add without reloading the page************
+  //user creates new tweet. Use ajax POST request to add without reloading the page*********
   $(".new-tweet-form").on("click", function (event) {
     $(".new-tweet-form .error-message").text("");
   });
@@ -74,7 +71,7 @@ $(document).ready(function () {
     });
   });
 
-  //STRETCH Features************
+  //STRETCH Features************************************************************************
   //implement toggle button
   const toggleButton = $(".fas.fa-angle-double-down");
   function toggleNewTweet() {
