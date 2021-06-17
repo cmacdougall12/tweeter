@@ -24,7 +24,7 @@
   display: flex;
   align-items: stretch;
   justify-content:flex-start;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   margin: 0.5em;
 }
 
@@ -64,3 +64,12 @@
 .tweet-container footer i:hover {
   color: darkgoldenrod;
 }
+
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .toggle {
+    height: 120px;
+  }
+
+  }

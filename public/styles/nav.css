@@ -2,7 +2,8 @@
 .top-nav-bar {
   height: 120px;
   width: 100%;
-  background-color: #4056a1;
+  /* background: rgba(204, 204, 204, 0.5) */
+  background-color: black;
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -52,7 +53,7 @@ nav div i:hover {
   bottom: 20px;
   right: 20px;
   z-index: 100;
-  color:red;
+  color:darkred;
   font-size: 50px;
   transition: all .5s ease;
   opacity: 0;
